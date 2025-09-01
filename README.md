@@ -4,7 +4,7 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 ## Literature Review
 * In the literature review, I created a map of the UK with the individual insects and nests found for *Vespa velutina*. 
 * I used R studio to create this map based on location data from Defra: https://www.gov.uk/government/publications/asian-hornet-uk-sightings/asian-hornet-sightings-recorded-since-2016. 
-* The script is in the Literature Review folder of this repository.
+* The script is in the Literature Review folder of this repository: ```Mapping_of_Hornets.R```
 
 ## Data Chapter 1a
 
