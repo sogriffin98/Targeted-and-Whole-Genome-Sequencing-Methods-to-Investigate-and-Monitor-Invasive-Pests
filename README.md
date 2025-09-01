@@ -16,4 +16,6 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 * In this data chapter, I created a draft reference genome for *Meloidogyne fallax* or false Columbia root knot nematode.
 * The genome was published in the Journal of Nematology: https://doi.org/10.2478/jofnem-2025-0016
 * The associated scripts and code is in the Data-Chapter-2 folder of this repository.
+* The reference genome can be found here: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048569365.1/
+* The raw Illumina and Oxford Nanopore Technologies NGS data can be found here: https://www.ncbi.nlm.nih.gov/sra?LinkName=biosample_sra&from_uid=44309162
 
