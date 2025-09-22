@@ -7,6 +7,7 @@ In order to compare the discriminatory power, I used a dataset of the same 86 in
 * This was then used to simulate a dataset of 1,000 individuals per kin category (unrelated, half-sibling, full-sibling and parent-offspring) for both genetic markers.
 * The dataset was then plotted on a histogram style graph to compare the discriminatory power.
 * The code I used for the SNPs can be found under ```Related_SNPs.R``` and the code for microsatellites can be found under ```Related_Microsatellites.R```
+* The raw data files for both can be found under: ```snps_raw_data.txt``` and ```Related_microsatellites_raw_data.txt```
 
 ## GenAlEx Excel Plug In
 * 
