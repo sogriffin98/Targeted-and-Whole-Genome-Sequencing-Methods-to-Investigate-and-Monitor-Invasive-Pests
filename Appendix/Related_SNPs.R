@@ -8,7 +8,7 @@ library(related)
 library(viridis)
 
 # Load genotype data
-genotype_data <- read.table("raw_data.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+genotype_data <- read.table("snps_raw_data.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 
 # Rename columns: replace _A -> .1 and _B -> .2
 colnames(genotype_data)[-1] <- gsub("_A$", ".1", colnames(genotype_data)[-1])
