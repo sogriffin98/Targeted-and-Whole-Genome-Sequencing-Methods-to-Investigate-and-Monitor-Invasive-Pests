@@ -6,11 +6,9 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 * I used R studio to create this map based on location data from Defra: https://www.gov.uk/government/publications/asian-hornet-uk-sightings/asian-hornet-sightings-recorded-since-2016. 
 * The script and Microsoft Excel file is in the Literature-Review folder of this repository: ```Mapping_of_Hornets.R``` and ```mapping_of_hornets.xlsx```
 
-## Data Chapter 1a
+## Data Chapter 1a: Population genetics of *Vespa velutina*
 
-## Data Chapter 1b
-
-## Data Chapter 1c
+## Data Chapter 1b: Kinship analysis of *Vespa velutina*
 
 ## Data Chapter 2: Genome assembly of *Meloidogyne fallax*
 * In this data chapter, I created a draft reference genome for *Meloidogyne fallax* or false Columbia root knot nematode.
@@ -19,3 +17,7 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 * The reference genome can be found here: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048569365.1/
 * The raw Illumina and Oxford Nanopore Technologies NGS data can be found here: https://www.ncbi.nlm.nih.gov/sra?LinkName=biosample_sra&from_uid=44309162
 
+## Appendix: Comparison between SNPs vs Microsatellites for 
+* In the appendix, I did a comparison of the discrimatory power of SNPs vs Microsatellites for *Vespa velutina* (yellow legged hornet).
+* Microsatellites are currently used by Fera Science Limited to monitor yellow legged hornets in the UK
+* I compared the two markers using the related R package and GenAlEx to better understand the ability to distinguish between kin groups
