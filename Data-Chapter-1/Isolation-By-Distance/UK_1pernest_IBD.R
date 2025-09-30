@@ -9,10 +9,10 @@ if(length(to_install)) install.packages(to_install, dependencies = TRUE)
 lapply(required_packages, library, character.only = TRUE)
 
 # Load genetic data (PLINK raw format)
-gl <- read.PLINK("All_data_plink_output.raw")  # adjust filename if needed
+gl <- read.PLINK("UK_1pernest_data_plink_output.raw")  # adjust filename if needed
 
 # Load coordinates
-coords <- read.csv("coords_uk1pernest.csv")
+coords <- read.csv("UK_1pernest_coords.csv")
 coords <- as.matrix(coords[, c("longitude", "latitude")])
 
 # Check that individuals match between genotype and coords
