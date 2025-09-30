@@ -10,9 +10,9 @@ library(readr)
 library(ggplot2)
 
 # important plink output files 
-PCA_file_covMat <- read.table("pca_results.eigenvec", header=FALSE) 
+PCA_file_covMat <- read.table("UKEU_pca_results.eigenvec", header=FALSE) 
 # import the .cov file
-eigenvals <- read.table("pca_results.eigenval", header=FALSE)
+eigenvals <- read.table("UKEU_pca_results.eigenval", header=FALSE)
 # remove double ID column
 pca <- PCA_file_covMat[,-1]
 #pca <- PCA_file_covMat
@@ -25,7 +25,7 @@ names(pca)[2:ncol(pca)] <- paste0("PC", 1:PCs)
 head (pca)
 
 # load in the sample ID assignments 
-meta<- read.csv("sample_ID_2.csv", header=FALSE)
+meta<- read.csv("sample_ID_UKEU_1pernest.csv", header=FALSE)
 head(meta)
 pop_assings <- meta[,2]
 levs <- as.factor(pop_assings)
