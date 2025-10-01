@@ -64,5 +64,14 @@ This step was done using a Perl script from the GT-seq GitHub (https://github.co
 ```
 GTseq_PrimerCheck.pl GTseq_PrimerCheck_Primers.csv
 ```
+## Final Filtering
+* The next filtering step applied was the melting temperature (Tm), the temperature at which half of the oligonucleotide is annealed to its compliment (Whitman, 2023).
+* In the case of this study, the primers were filtered to ensure that they had a Tm of over 50 degrees and a Tm difference between left and right primer of less than 5 degrees (Premier Biosoft., 2023, Thermofisher Scientific., 2019).
+* This filtering step did not remove any primers from the list.
+* The final filtering step was to assess the GC content of each of primer.
+* The GC content of primers should ideally be 40-60%. In the case of this study, primers with a GC% of between 50-61.11% were kept.
+* This removed 1,212 primers leaving 482 primers.
+* For ease of ordering 96-well primer plates, 2 more primers were removed to leave a final total of 480 primer pairs for use in the Genotyping in Thousands by Sequencing (GT-seq) assay. 
+
 ## Ordering the Primers
 The primers were ordered from IDT in a 96 well format with the forward and reverse primer pairs within the same well to reduce the cost of the project.
