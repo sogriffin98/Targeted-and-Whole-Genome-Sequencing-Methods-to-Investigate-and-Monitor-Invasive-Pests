@@ -7,7 +7,7 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 * The script and Microsoft Excel file is in the Literature-Review folder of this repository: ```Mapping_of_Hornets.R``` and ```mapping_of_hornets.xlsx```
 
 ## Chapter 1 
-The first data chapter of my PhD project focuses on Vespa velutina (yellow legged or Asian hornet). The first part of the chapter discusses the process involved with the selection of SNP loci and the primer design. The data analysis part of this chapter is split into the 2 parts, a and b, below (Population Genetics and Kinship Analysis) where I have provided the input files and code used for each analysis type in separate folders.
+The first data chapter of my PhD project focuses on *Vespa velutina* (yellow legged or Asian hornet). The first part of the chapter discusses the process involved with the selection of SNP loci and the primer design. Then the second part checks the data entegrity of the Illumina MiSeq data before it is used for data analysis. The data analysis part of this chapter is split into the 2 parts, a and b, below (Population Genetics and Kinship Analysis) where I have provided the input files and code used for each analysis type in separate folders.
 ### SNP Selection and Primer Design
 #### 1. SNP Selection
 This folder contains python scripts and commandline code used for:
@@ -20,7 +20,7 @@ This folder contains the python and perl scripts and commandline code used for:
 * Primer Design using Primer3 commandline
 * Checking the primers using the GT-seq primer check script
 * Filtering of primers by GC% and melting temperature
-### Illumina MiSeq Data Preparation
+### Illumina MiSeq Data Entegrity
 
 
 NEED TO SORT!!!!!!!!!!!!!!!!!!!!!
