@@ -1,5 +1,5 @@
 # Yellow Legged Hornets Combined MiSeq Runs Analysis
-Each sequencing run was analysed separately first but then using all the bam files I analysed them as one group following the below instructions:
+Each sequencing run was analysed separately first but then using all the bam files which had been aligned to the published reference genome (NCBI Accession: PRJEB46979) I analysed them as one group and created different subsets depending on sample location and I used a 1 per nest dataset for population genetics analysis. These were the instructions used to create the VCF file:
 
 ## 1. Merge the bam files from multiple sequencing runs
 Some of the samples were repeated and therefore I combined their bam files using the merge function of samtools:
