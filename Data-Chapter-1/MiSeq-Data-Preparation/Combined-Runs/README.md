@@ -28,6 +28,6 @@ conda activate bcftools
 bcftools mpileup -f ./reference/GCF_912470025.1_iVesVel2.1_genomic.fna --annotate AD,DP ./bam/*primaryalignment.bam | bcftools call -m -v -f GQ --skip-variants indels -o ./vcf/AH_400_inds.vcf
 ```
 
-## 5. Check the VCF
+## 5. Filter and Quality Check the VCF
 ```
 chmod +x vcf_checks.sh
