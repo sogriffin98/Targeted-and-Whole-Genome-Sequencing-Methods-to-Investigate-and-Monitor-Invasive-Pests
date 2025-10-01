@@ -1,6 +1,6 @@
 # SNP Selection
 ## Prepare Sample Reads and Compare to Reference Genome
-### Trim sample Illumina reads using trim galore on --paired setting:
+### Trim sample Illumina reads using trim galore (https://github.com/FelixKrueger/TrimGalore) on --paired setting:
 ```
 trim_galore --paired ALD_L4_S2_R1_001.fastq.gz ALD_L4_S2_R2_001.fastq.gz
 trim_galore --paired AS_P8_S9_R1_001.fastq.gz AS_P8_S9_R2_001.fastq.gz
@@ -10,12 +10,12 @@ trim_galore --paired Jersey_rep_S6_R1_001.fastq.gz Jersey_rep_S6_R2_001.fastq.gz
 trim_galore --paired TET_P6_S3_R1_001.fastq.gz TET_P6_S3_R2_001.fastq.gz
 trim_galore --paired WOOL_P8_S7_R1_001.fastq.gz WOOL_P8_S7_R2_001.fastq.gz
 ```
-### Index reference genome using samtools and bwa:
+### Index reference genome using samtools (https://github.com/samtools/samtools) and BWA (https://github.com/lh3/bwa):
 ```
 samtools faidx GCF_912470025.1_iVesVel2.1_genomic.fna
 bwa index GCF_912470025.1_iVesVel2.1_genomic.fna.fai
 ```
-### Align the reads:
+### Align the reads using BWA (https://github.com/lh3/bwa):
 ```
 cd ~/day1practical2/
 mkdir -p ./bwa/sam/ 
@@ -28,7 +28,7 @@ bwa mem ./GCF_912470025.1_iVesVel2.1_genomic.fna ./fastq/Jersey_rep_S6_R1_001_va
 bwa mem ./GCF_912470025.1_iVesVel2.1_genomic.fna ./fastq/TET_P6_S3_R1_001_val_1.fastq.gz ./fastq/TET_P6_S3_R2_001_val_2.fastq.gz > ./bwa/sam/TET.sam
 bwa mem ./GCF_912470025.1_iVesVel2.1_genomic.fna ./fastq/WOOL_P8_S7_R1_001_val_1.fastq.gz ./fastq/WOOL_P8_S7_R2_001_val_2.fastq.gz > ./bwa/sam/WOOL.sam
 ```
-### Convert sam file into bam file:
+### Convert sam file into bam file using samtools (https://github.com/samtools/samtools):
 ```
 samtools view -bh ./bwa/sam/ALD.sam > ./bwa/bam/ALD.bam
 samtools view -bh ./bwa/sam/AS.sam > ./bwa/bam/AS.bam
@@ -38,7 +38,7 @@ samtools view -bh ./bwa/sam/JerseyRep.sam > ./bwa/bam/JerseyRep.bam
 samtools view -bh ./bwa/sam/TET.sam > ./bwa/bam/TET.bam
 samtools view -bh ./bwa/sam/WOOL.sam > ./bwa/bam/PORT.bam
 ```
-### Sort the bam to make an index:
+### Sort the bam to make an index using samtools (https://github.com/samtools/samtools):
 ```
 cd ~/heterozygosity/bwa/bam/
 samtools sort -o ALD_sorted.bam ALD.bam
@@ -56,7 +56,7 @@ samtools index TET_sorted.bam
 samtools sort -o WOOL_sorted.bam WOOL.bam
 samtools index WOOL_sorted.bam
 ```
-### Filter the alignment:
+### Filter the alignment using bamtools (https://github.com/pezmaster31/bamtools) and samtools (https://github.com/samtools/samtools):
 ```
 bamtools filter -mapQuality '>=30' -isPrimaryAlignment 'true' -insertSize '<=800' -in ALD_sorted.bam -out ALD_sorted.mq30.maxinsert.primaryalignment.bam
 samtools index ALD_sorted.mq30.maxinsert.primaryalignment.bam
@@ -73,7 +73,7 @@ samtools index TET_sorted.mq30.maxinsert.primaryalignment.bam
 bamtools filter -mapQuality '>=30' -isPrimaryAlignment 'true' -insertSize '<=800' -in WOOL_sorted.bam -out WOOL_sorted.mq30.maxinsert.primaryalignment.bam
 samtools index WOOL_sorted.mq30.maxinsert.primaryalignment.bam
 ```
-### Mark PCR duplicates using Picard:
+### Mark PCR duplicates using Picard (https://github.com/broadinstitute/picard):
 ```
 picard MarkDuplicates I=ALD_sorted.mq30.maxinsert.primaryalignment.bam O=ALD_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam M=ALD_marked_dup_metrics.txt
 picard MarkDuplicates I=AS_sorted.mq30.maxinsert.primaryalignment.bam O=AS_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam M=AS_marked_dup_metrics.txt
@@ -83,7 +83,7 @@ picard MarkDuplicates I=JerseyRep_sorted.mq30.maxinsert.primaryalignment.bam O=J
 picard MarkDuplicates I=TET_sorted.mq30.maxinsert.primaryalignment.bam O=TET_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam M=TET_marked_dup_metrics.txt
 picard MarkDuplicates I=WOOL_sorted.mq30.maxinsert.primaryalignment.bam O=WOOL_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam M=WOOL_marked_dup_metrics.txt
 ```
-### Check quality of alignment:
+### Check quality of alignment using Qualimap (https://github.com/EagleGenomics-cookbooks/QualiMap):
 ```
 mkdir qualimap
 qualimap bamqc --java-mem-size=8g -bam ALD_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam -outdir ./qualimap/asianhornet_qualimap -outfile ALD.pdf
@@ -94,33 +94,33 @@ qualimap bamqc --java-mem-size=8g -bam JerseyRep_sorted.mq30.maxinsert.primaryal
 qualimap bamqc --java-mem-size=8g -bam TET_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam -outdir ./qualimap/asianhornet_qualimap -outfile TET.pdf
 qualimap bamqc --java-mem-size=8g -bam WOOL_sorted.mq30.maxinsert.primaryalignment_marked_duplicates.bam -outdir ./qualimap/asianhornet_qualimap -outfile WOOL.pdf
 ```
-### Variant detection:
+### Variant detection using bcftools (https://github.com/samtools/bcftools):
 ```
 mkdir -p ./vcf
 bcftools mpileup -f ./asianhornetgenome/GCF_912470025.1_iVesVel2.1_genomic.fna --annotate AD,DP ./bwa/bam/*primaryalignment_marked_duplicates.bam | bcftools call -m -v -f GQ --skip-variants indels -o ./vcf/AH_subset_7inds.vcf
 ```
-### Check the number of loci and individuals using vcftools:
+### Check the number of loci and individuals using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds.vcf
 ```
-### Filter by genotype:
+### Filter by genotype using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds.vcf --minDP 6 --minGQ 18 --recode --out AH_subset_7inds_minDP6GQ18
 ```
 ## SNP Filtering:
-### Biallelic Loci:
+### Biallelic Loci using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18.recode.vcf --max-alleles 2 --min-alleles 2 --recode --out AH_subset_7inds_minDP6GQ18_biallelic
 ```
-### Missing Data:
+### Missing Data using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic.recode.vcf --max-missing 0.14 --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing
 ```
-### Minor Allele Frequency/Count:
+### Minor Allele Frequency/Count using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing.recode.vcf --mac 2 --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2
 ```
-### Maximum Depth Mean:
+### Maximum Depth Mean using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2.recode.vcf --site-mean-depth --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2
 ```
@@ -136,23 +136,23 @@ mean(ldepth$MEAN_DEPTH)
 sd(ldepth$MEAN_DEPTH)
 exit()
 ```
-### Apply SD to VCF file (make sure to edit max-mean DP based on Mean):
+### Apply SD to VCF file (make sure to edit max-mean DP based on Mean) using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2.recode.vcf --max-meanDP 44 --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missinG_mac2_maxDP
 ```
-### Check Coverage:
+### Check Coverage using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP.recode.vcf --depth --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP
 ```
-### Filter for no missing:
+### Filter for no missing data using vcftools (https://github.com/vcftools/vcftools):
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP.recode.vcf --max-missing 1 --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing
 ```
-### Linkage Disequilibrium (Thin 10k)
+### Linkage Disequilibrium (Thin 10k) using vcftools (https://github.com/vcftools/vcftools)
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing.recode.vcf --thin 10000 --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k
 ```
-### Filter by Frequency
+### Filter by Frequency using vcftools (https://github.com/vcftools/vcftools)
 First I filtered by 0.5 frequency but this was too stringent:
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k.recode.vcf --positions 0.5_freq_loci.txt --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.5freq
@@ -161,11 +161,11 @@ so I changed the filter to 0.4 - 0.6:
 ```
 vcftools --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k.recode.vcf --positions 0.40.6loci.txt --recode --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.4_0.6freq
 ```
-### Filter by independant pairwise:
+### Filter by independant pairwise using Plink (https://github.com/chrchang/plink-ng):
 ```
 plink --vcf AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.4_0.6freq_exhetero.recode.vcf --indep-pairwise 10 5 0.5 --double-id --allow-extra-chr --out AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.4_0.6freq_exhetero_LDpruned
 ```
-### Linkage Disequilibrium:
+### Linkage Disequilibrium using plink (https://github.com/chrchang/plink-ng) and vcftools (https://github.com/vcftools/vcftools):
 ```
 awk 'BEGIN{OFS="\t"} !/#/ {sub(/\./, $1"_"$2, $3)}1' AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.4_0.6freq_exhetero.recode.vcf > AH_subset_7inds_minDP6GQ18_biallelic_0.14missing_mac2_maxDP_nomissing_thin10k_0.4_0.6freq_exhetero.anotated.vcf
 
