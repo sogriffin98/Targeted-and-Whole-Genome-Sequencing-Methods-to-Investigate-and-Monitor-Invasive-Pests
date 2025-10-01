@@ -20,6 +20,12 @@ This folder contains the python and perl scripts and commandline code used for:
 * Primer Design using Primer3 commandline
 * Checking the primers using the GT-seq primer check script
 * Filtering of primers by GC% and melting temperature
+### Illumina MiSeq Data Preparation
+
+
+NEED TO SORT!!!!!!!!!!!!!!!!!!!!!
+
+
 ### Data Chapter 1a: Population Genetics Analysis
 #### 1. Principal-Components-Analysis
 This folder contains R code and input files for:
