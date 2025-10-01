@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace <> with your specific identifier
-PREFIX="AH_300_inds"
+PREFIX="AH_400_inds"
 
 # Apply filters for minimum depth and genotype quality
 vcftools --vcf ${PREFIX}.vcf --minDP 6 --minGQ 18 --recode --out ${PREFIX}_minDP6GQ18
