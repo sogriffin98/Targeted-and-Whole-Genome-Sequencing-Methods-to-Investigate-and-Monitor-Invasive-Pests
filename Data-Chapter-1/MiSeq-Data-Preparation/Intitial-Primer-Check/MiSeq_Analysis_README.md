@@ -1,5 +1,5 @@
 # GT-seq_Hornets_MiSeq_Analysis
-This is the data analysis I completed on the data from the 5 Illumina MiSeq Runs to check the data integrity.
+This is the data analysis I performed separately on the first Illumina MiSeq run to check that the SNP loci has been amplified and to remove any overrepresented SNPs from the primer pool. 
 
 ## FastQC
 * First run FastQC analysis on each of the reads:
