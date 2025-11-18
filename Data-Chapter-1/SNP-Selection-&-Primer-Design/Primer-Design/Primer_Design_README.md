@@ -25,7 +25,7 @@ bedtools getfasta -fi <masked_genome.fa> -bed <variants_of_interest.bed> -name -
 ```
 ### Step 3: replace masked allele in each sequence using py_replace_alleles.py script. The output is a fasta file with nmasked variants.
 ```
-python3 py_replace_alleles.py <masked_variants_of_interest.fa> <alleles_info.txt>
+python3 flankingsequences.py <masked_variants_of_interest.fa> <alleles_info.txt>
 ```
 ## Primer Design Using Primer3
 ### Fasta2primer3
