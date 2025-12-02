@@ -1,12 +1,12 @@
 # Genomic Tools to Enable Epidemiological Monitoring of Eukaryotic Pests
 This GitHub repository contains all of the scripts and code used during my PhD project titled "Genomic Tools to Enable Epidemiological Monitoring of Eukaryotic Pests" at Newcastle University from September 2022 to July 2026. The code is split into the relevant chapters in the folders of this repository to allow ease of reproducibility. The study species for this research were *Vespa velutina* (yellow legged hornet) and *Meloidogyne fallax* (false Columbia root knot nematode). *V. velutina* is an invasive insect species in the UK which poses a threat to apiculture. *M. fallax* is a plant pest which burrows into the roots of crops causing external galling and necrosis. 
 
-## Literature Review Chapter
-* In the literature review, I created a map of the UK with the individual insects and nests found for *Vespa velutina*. 
+## Chapter 1: Introduction Chapter
+* In the introduction, I created a map of the UK with the individual insects and nests found for *Vespa velutina*. 
 * I used R studio to create this map based on location data from Defra: https://www.gov.uk/government/publications/asian-hornet-uk-sightings/asian-hornet-sightings-recorded-since-2016. 
 * The script and Microsoft Excel file is in the Literature-Review folder of this repository: ```Mapping_of_Hornets.R``` and ```mapping_of_hornets.xlsx```
 
-## Chapter 1 
+## Chapter 2: Development of a Genotyping in Thousands by Sequencing (GT-Seq) Assay and Population Genetics Analysis of *Vespa velutina* (Yellow Legged Hornet) 
 The first data chapter of my PhD project focuses on *Vespa velutina* (yellow legged or Asian hornet). The first part of the chapter discusses the process involved with the selection of SNP loci and the primer design. Then the second part checks the data entegrity of the Illumina MiSeq data before it is used for data analysis. The data analysis part of this chapter is split into the 2 parts, a and b, below (Population Genetics and Kinship Analysis) where I have provided the input files and code used for each analysis type in separate folders.
 ### SNP Selection and Primer Design
 #### 1. SNP Selection
