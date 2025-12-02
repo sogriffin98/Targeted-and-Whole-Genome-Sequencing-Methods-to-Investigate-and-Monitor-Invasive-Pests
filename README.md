@@ -21,12 +21,9 @@ This folder contains the python and perl scripts and commandline code used for:
 * Checking the primers using the GT-seq primer check script
 * Filtering of primers by GC% and melting temperature
 ### Illumina MiSeq Data Entegrity
+# NEED TO FINISH
 
-
-NEED TO SORT!!!!!!!!!!!!!!!!!!!!!
-
-
-### Data Chapter 1a: Population Genetics Analysis
+### Population Genetics Analysis
 #### 1. Principal-Components-Analysis
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_PCA.R, UK_pca_results.eigenval, UK_pca_results.eigenvec, sample_ID_UK_1pernest.csv
@@ -39,10 +36,12 @@ This folder contains R code and input files for:
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_IBD.R, UK_1pernest_coords.csv, UK_1pernest_data_plink_output.raw
 * UK/EU 1 per nest analysis: UKEU_1pernest_IBD.R, UKEU_1pernest_coords.csv, UKEU_1pernest_data_plink_output.raw
-### Data Chapter 1b: Kinship Analysis
-#### 1. Related
+  
+## Chapter 3: Kinship Analysis of Vespa velutina (Yellow Legged Hornet) in the United Kingdom
+This folder contains
 
-## Data Chapter 2: Genome assembly of *Meloidogyne fallax*
+
+## Data Chapter 4: Genome assembly of *Meloidogyne fallax*
 * In this data chapter, I created a draft reference genome for *Meloidogyne fallax* or false Columbia root knot nematode.
 * The genome was published in the Journal of Nematology: https://doi.org/10.2478/jofnem-2025-0016
 * The associated scripts and code is in the Data-Chapter-2 folder of this repository.
