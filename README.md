@@ -20,19 +20,21 @@ This folder contains the python and perl scripts and commandline code used for:
 * Primer Design using Primer3 commandline
 * Checking the primers using the GT-seq primer check script
 * Filtering of primers by GC% and melting temperature
-### Illumina MiSeq Data Entegrity
-# NEED TO FINISH
-
-### Population Genetics Analysis
-#### 1. Principal-Components-Analysis
+### MiSeq-Data-Preparation
+This directory contains the steps to check the data quality of the Illumina MiSeq data for the GT-seq assay
+* The data is trimmed and filtered for quality
+* Aligned to the reference genome
+* SNPs are filtered to remove any sequencing artifacts and to ensure the loci remaining are biallelic.
+### Population-Genetics
+#### Principal-Components-Analysis
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_PCA.R, UK_pca_results.eigenval, UK_pca_results.eigenvec, sample_ID_UK_1pernest.csv
 * UK/EU 1 per nest analysis: UKEU_1pernest_PCA.R, UKEU_pca_results.eigenval, UKEU_pca_results.eigenvec, sample_ID_UKEU_1pernest.csv
-#### 2. STRUCTURE
+#### STRUCTURE
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_STRUCTURE.R, structure_summary_uk.csv
 * UK/EU 1 per nest analysis: UKEU_1pernest_STRUCTURE.R, structure_summary_uk_eu.csv
-#### 3. Isolation-By-Distance
+#### Isolation-By-Distance
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_IBD.R, UK_1pernest_coords.csv, UK_1pernest_data_plink_output.raw
 * UK/EU 1 per nest analysis: UKEU_1pernest_IBD.R, UKEU_1pernest_coords.csv, UKEU_1pernest_data_plink_output.raw
