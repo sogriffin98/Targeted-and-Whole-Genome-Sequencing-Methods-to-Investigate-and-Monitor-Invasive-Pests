@@ -40,9 +40,16 @@ This folder contains R code and input files for:
 * UK/EU 1 per nest analysis: UKEU_1pernest_IBD.R, UKEU_1pernest_coords.csv, UKEU_1pernest_data_plink_output.raw
   
 ## Chapter 3: Kinship Analysis of Vespa velutina (Yellow Legged Hornet) in the United Kingdom
-### NEED TO FINISH ###
-
-### SNPs vs Microsatellites
+This chapter utilises the sequencing data generated in Chapter 2 to perform kinship analysis for samples of *Vespa velutina* found in the United Kingdom. 
+### Related-R-Package
+This directory contains the code used to:
+* Run the related R package for 344 individual *Vespa velutina* samples from the UK and the input file 
+### Genetic_Distance_vs_Geographic
+This directory contains the code used to:
+* Calculate the geographic distance in kilometers between pairs of nests and individuals who are related to each other
+* Create a box and violin plot of these geographical distances separated by kin category (full sibling, cousin, aunt-niece and great aunt-niece)
+* Complete a series of statistical tests to test the significance between the Lynch and Ritland relatednes values and geographic distance across kin categories (full sibling, cousin, aunt-niece and great aunt-niece)
+### SNPs_vs_Microsatellites
 * I did a comparison of the discrimatory power of SNPs vs Microsatellites for *Vespa velutina* (yellow legged hornet).
 * Microsatellites are currently used by Fera Science Limited to monitor yellow legged hornets in the UK
 * I compared the two markers using the related R package and GenAlEx to better understand the ability to distinguish between kin groups
