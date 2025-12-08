@@ -38,8 +38,12 @@ This folder contains R code and input files for:
 * UK/EU 1 per nest analysis: UKEU_1pernest_IBD.R, UKEU_1pernest_coords.csv, UKEU_1pernest_data_plink_output.raw
   
 ## Chapter 3: Kinship Analysis of Vespa velutina (Yellow Legged Hornet) in the United Kingdom
-This folder contains
+### NEED TO FINISH ###
 
+### SNPs vs Microsatellites
+* I did a comparison of the discrimatory power of SNPs vs Microsatellites for *Vespa velutina* (yellow legged hornet).
+* Microsatellites are currently used by Fera Science Limited to monitor yellow legged hornets in the UK
+* I compared the two markers using the related R package and GenAlEx to better understand the ability to distinguish between kin groups
 
 ## Data Chapter 4: Genome assembly of *Meloidogyne fallax*
 * In this data chapter, I created a draft reference genome for *Meloidogyne fallax* or false Columbia root knot nematode.
@@ -48,7 +52,4 @@ This folder contains
 * The reference genome can be found here: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_048569365.1/
 * The raw Illumina and Oxford Nanopore Technologies NGS data can be found here: https://www.ncbi.nlm.nih.gov/sra?LinkName=biosample_sra&from_uid=44309162
 
-## Appendix: Comparison between SNPs vs Microsatellites for 
-* In the appendix, I did a comparison of the discrimatory power of SNPs vs Microsatellites for *Vespa velutina* (yellow legged hornet).
-* Microsatellites are currently used by Fera Science Limited to monitor yellow legged hornets in the UK
-* I compared the two markers using the related R package and GenAlEx to better understand the ability to distinguish between kin groups
+
