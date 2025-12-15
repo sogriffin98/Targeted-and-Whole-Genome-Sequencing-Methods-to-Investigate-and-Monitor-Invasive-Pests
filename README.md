@@ -54,7 +54,7 @@ This directory contains the code used to:
 * Microsatellites are currently used by Fera Science Limited to monitor yellow legged hornets in the UK
 * I compared the two markers using the related R package and GenAlEx to better understand the ability to distinguish between kin groups
 
-## Data Chapter 4: Genome assembly of *Meloidogyne fallax*
+## Chapter 4: Genome assembly of *Meloidogyne fallax*
 * In this data chapter, I created a draft reference genome for *Meloidogyne fallax* or false Columbia root knot nematode.
 * The genome was published in the Journal of Nematology: https://doi.org/10.2478/jofnem-2025-0016
 * The associated scripts and code is in the Data-Chapter-2 folder of this repository.
