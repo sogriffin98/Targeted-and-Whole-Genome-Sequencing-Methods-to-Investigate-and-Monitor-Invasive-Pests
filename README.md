@@ -39,7 +39,7 @@ This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_IBD.R, UK_1pernest_coords.csv, UK_1pernest_data_plink_output.raw
 * UK/EU 1 per nest analysis: UKEU_1pernest_IBD.R, UKEU_1pernest_coords.csv, UKEU_1pernest_data_plink_output.raw
   
-## Chapter 3: Kinship Analysis of Vespa velutina (Yellow Legged Hornet) in the United Kingdom
+## Chapter 3: Kinship Analysis of *Vespa velutina* (Yellow Legged Hornet) in the United Kingdom
 This chapter utilises the sequencing data generated in Chapter 2 to perform kinship analysis for samples of *Vespa velutina* found in the United Kingdom. 
 ### Related-R-Package
 This directory contains the code used to:
