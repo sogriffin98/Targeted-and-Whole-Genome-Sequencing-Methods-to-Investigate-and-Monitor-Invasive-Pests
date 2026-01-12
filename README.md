@@ -4,7 +4,9 @@ This GitHub repository contains all of the scripts and code used during my PhD p
 ## Chapter 1: Introduction Chapter
 * In the introduction, I created a map of the UK with the individual insects and nests found for *Vespa velutina*. 
 * I used R studio to create this map based on location data from Defra: https://www.gov.uk/government/publications/asian-hornet-uk-sightings/asian-hornet-sightings-recorded-since-2016. 
-* The script and Microsoft Excel file is in the Literature-Review folder of this repository: ```Mapping_of_Hornets.R``` and ```mapping_of_hornets.xlsx```
+* The script and Microsoft Excel file: ```Mapping_of_Hornets.R``` and ```mapping_of_hornets.xlsx```
+* I also created a map based on data from the EPPO database for the distribution of *M. fallax* globally: https://gd.eppo.int/taxon/MELGFA/distribution
+* The scriot and csv file: ```Mfallax_world_distribution.R``` and ```species_distribution.csv```
 
 ## Chapter 2: Development of a Genotyping in Thousands by Sequencing (GT-Seq) Assay and Population Genetics Analysis of *Vespa velutina* (Yellow Legged Hornet) 
 The first data chapter of my PhD project focuses on *Vespa velutina* (yellow legged or Asian hornet). The first part of the chapter discusses the process involved with the selection of SNP loci and the primer design. Then the second part checks the data entegrity of the Illumina MiSeq data before it is used for data analysis. The data analysis part of this chapter is split into the 2 parts, a and b, below (Population Genetics and Kinship Analysis) where I have provided the input files and code used for each analysis type in separate folders.
