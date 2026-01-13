@@ -10,4 +10,8 @@ In order to compare the discriminatory power, I used a dataset of the same 86 in
 * The raw data files for both can be found under: ```snps_raw_data.txt``` and ```Related_microsatellites_raw_data.txt```
 
 ## GenAlEx Excel Plug In
-* 
+* I used GenAlEx (https://biology-assets.anu.edu.au/GenAlEx/Download.html) to compare the probability of identity and probability of identity of siblings using the SNP and Microsatellite data.
+* Using the genotype data from the SNPs and Microsatellites I compared the two markers using the genotype data for each. The microsatellite data was previously completed by Fera Science and was copied into a new Microsoft Excel document for the 89 individuals. The SNP genotype data was copied from the STRUCTURE file for the 89 individuals
+* Then in Excel click the GenAlEx tab > Frequency-Based > Multilocus > Prob. Identity
+* Fill out the Parameters that match the data and click OK
+* There should be a new sheet created with the probability of identity and probability of identity of siblings for each marker type
