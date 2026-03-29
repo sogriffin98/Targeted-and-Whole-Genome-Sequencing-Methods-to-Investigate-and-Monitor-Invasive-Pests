@@ -32,6 +32,8 @@ This directory contains the steps to check the data quality of the Illumina MiSe
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_PCA.R, UK_pca_results.eigenval, UK_pca_results.eigenvec, sample_ID_UK_1pernest.csv
 * UK/EU 1 per nest analysis: UKEU_1pernest_PCA.R, UKEU_pca_results.eigenval, UKEU_pca_results.eigenvec, sample_ID_UKEU_1pernest.csv
+#### Neighbour Joining Trees
+This folder contains the R code for UK 1 per nest and UK/EU 1 per nest analysis in 1 R script which creates 2 neighbour joining trees.
 #### STRUCTURE
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_STRUCTURE.R, structure_summary_uk.csv
