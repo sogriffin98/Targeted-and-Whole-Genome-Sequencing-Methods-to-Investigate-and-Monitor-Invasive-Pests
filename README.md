@@ -29,7 +29,7 @@ This directory contains the steps to check the data quality of the Illumina MiSe
 * SNPs are filtered to remove any sequencing artifacts and to ensure the loci remaining are biallelic.
 ### Population-Genetics
 #### Population-Genetics-Stats
-This folder contains the R code used to calculate the observed and expected heterozygosity as well as the inbreeding coefficient.
+This folder contains the R code used to calculate the observed and expected heterozygosity, inbreeding coefficient and global FST.
 #### Principal-Components-Analysis
 This folder contains R code and input files for:
 * UK 1 per nest analysis: UK_1pernest_PCA.R, UK_pca_results.eigenval, UK_pca_results.eigenvec, sample_ID_UK_1pernest.csv
