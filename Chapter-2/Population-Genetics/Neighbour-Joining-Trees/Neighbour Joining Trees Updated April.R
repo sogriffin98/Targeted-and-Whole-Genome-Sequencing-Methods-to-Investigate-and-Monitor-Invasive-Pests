@@ -8,10 +8,7 @@ library(ape)
 library(poppr)
 library(RColorBrewer)
 
-############################################################
-### BOOTSTRAP FUNCTION (500 replicates)
-############################################################
-
+# Bootstrap (500 replicates)
 bootstrap_nj <- function(gen, nboot = 500){
   
   X <- gen$tab
@@ -43,10 +40,7 @@ bootstrap_nj <- function(gen, nboot = 500){
   )
 }
 
-############################################################
-### MAIN TREE FUNCTION
-############################################################
-
+# Plotting the nj tree
 plot_nj_tree <- function(
     vcf_file,
     title = "",
@@ -69,10 +63,7 @@ plot_nj_tree <- function(
   dist_matrix <- bitwise.dist(gen)
   nj_tree <- nj(dist_matrix)
   
-  ############################################################
-  ### SAFE RENAMING USING new_names.csv
-  ############################################################
-  
+  # Rename sample names from VCF to uniform names using the new_names.csv
   if(!is.null(name_map_file)){
     name_map <- read.csv(name_map_file, stringsAsFactors = FALSE)
     
@@ -87,10 +78,7 @@ plot_nj_tree <- function(
     )
   }
   
-  ############################################################
-  ### COLOURING LOGIC (COUNTRY OR YEAR)
-  ############################################################
-  
+  # Colour the sample names by country or year
   tip_colors <- rep("black", nInd(gen))
   legend_labels <- NULL
   legend_colors <- NULL
@@ -142,17 +130,12 @@ plot_nj_tree <- function(
     }
   }
   
-  ############################################################
-  ### BOOTSTRAP SUPPORT (500 REPLICATES)
-  ############################################################
+  # Bootstrap support (500 replicates)
   
   boot_values <- bootstrap_nj(gen, nboot = 500)
   nj_tree$node.label <- boot_values
   
-  ############################################################
-  ### PLOTTING
-  ############################################################
-  
+  # Plot the NJ trees
   tip_cex <- 1.5 / log10(nInd(gen) + 1)
   top_margin <- ifelse(title == "", 1, 4)
   
@@ -186,11 +169,8 @@ plot_nj_tree <- function(
   return(nj_tree)
 }
 
-############################################################
-### RUN TREES
-############################################################
-
-# UK + EU tree (colour by COUNTRY)
+# Plot both trees
+# UK + EU tree (colour by country)
 nj_tree_uk_eu <- plot_nj_tree(
   vcf_file = "AH_104inds_minDP6_mac0.05_biallelic.recode.vcf",
   metadata_file = "metadata.csv",
@@ -199,7 +179,7 @@ nj_tree_uk_eu <- plot_nj_tree(
   colour_by = "country"
 )
 
-# UK-only tree (colour by YEAR)
+# UK-only tree (colour by year)
 nj_tree_uk <- plot_nj_tree(
   vcf_file = "AH_UK_89inds_minDP6_mac0.05_biallelic.recode.vcf",
   metadata_file = "metadata.csv",
