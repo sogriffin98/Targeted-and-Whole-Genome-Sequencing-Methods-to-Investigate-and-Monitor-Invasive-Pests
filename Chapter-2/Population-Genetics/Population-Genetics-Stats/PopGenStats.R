@@ -10,9 +10,7 @@ library(SeqArray)
 library(dplyr)
 library(stringr)
 
-###############################################
-# 1. FUNCTION: Fix genind objects
-###############################################
+# Fix genind objects
 
 fix_genind <- function(genind_obj) {
   
@@ -33,10 +31,7 @@ fix_genind <- function(genind_obj) {
   return(genind_obj)
 }
 
-###############################################
-# 2. FUNCTION: Calculate Ho, He, FIS
-###############################################
-
+# Calculate Ho, He, FIS
 calc_het <- function(vcf_file) {
   vcf <- read.vcfR(vcf_file)
   genind_obj <- vcfR2genind(vcf)
@@ -50,10 +45,7 @@ calc_het <- function(vcf_file) {
   return(list(genind = genind_obj, Ho = Ho, He = He, FIS = FIS))
 }
 
-###############################################
-# 3. Load datasets
-###############################################
-
+# Load datasets
 vcf_files <- c(
   "AH_104inds_minDP6GQ18_0.7missing_mac2_biallelic_thinned1kb.recode.vcf", # All
   "AH_89inds_minDP6GQ18_0.7missing_mac2_biallelic_thinned1kb.recode.vcf", # UK
@@ -65,16 +57,13 @@ dataset_names <- c("All", "UK", "Europe")
 results <- lapply(vcf_files, calc_het)
 names(results) <- dataset_names
 
-###############################################
-# 4. Assign populations from metadata
-###############################################
-
+# Assign populations from metadata
 meta <- read.csv("metadata.csv")
 
 assign_pops <- function(genind_obj) {
   inds <- indNames(genind_obj)
   submeta <- meta[match(inds, meta$Sample), ]
-  genind_obj@pop <- factor(submeta$Country)  # "UK" / "Europe"
+  genind_obj@pop <- factor(submeta$Country)
   return(genind_obj)
 }
 
@@ -82,10 +71,7 @@ results$All$genind    <- assign_pops(results$All$genind)
 results$UK$genind     <- assign_pops(results$UK$genind)
 results$Europe$genind <- assign_pops(results$Europe$genind)
 
-###############################################
-# 5. Summarise Ho, He, FIS
-###############################################
-
+# Summarise Ho, He, FIS
 het_df <- data.frame(
   Dataset = dataset_names,
   Ho = sapply(results, function(x) x$Ho),
@@ -94,11 +80,8 @@ het_df <- data.frame(
 )
 
 print(het_df)
-
-###############################################
-# 6. Hardy–Weinberg tests with BY correction
-###############################################
-
+              
+# Hardy–Weinberg tests with BY correction
 run_hwe <- function(genind_obj) {
   
   # Treat each dataset as a single panmictic population
@@ -129,7 +112,7 @@ run_hwe <- function(genind_obj) {
 
 hwe_results <- lapply(results, function(x) run_hwe(x$genind))
 
-# Reporting
+# Print report
 for (i in seq_along(dataset_names)) {
   cat("\n---", dataset_names[i], "---\n")
   cat("Total loci:", hwe_results[[i]]$total, "\n")
@@ -138,10 +121,8 @@ for (i in seq_along(dataset_names)) {
   cat("Proportion (BY):", hwe_results[[i]]$sig_by / hwe_results[[i]]$total, "\n")
 }
 
-###############################################
-# 7. Global FST
-###############################################
 
+# Global FST
 vcf_all <- read.vcfR(vcf_files[1])
 orig_names <- colnames(vcf_all@gt)[-1]
 
@@ -172,10 +153,7 @@ fst_global <- snpgdsFst(
 
 cat("\nGlobal FST:", fst_global$Fst, "\n")
 
-###############################################
-# 8. Permutation test for FST
-###############################################
-
+# Permutation test for FST
 perm_fst <- replicate(
   1000,
   {
